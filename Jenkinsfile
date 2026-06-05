@@ -11,7 +11,7 @@ pipeline{
 		}
 	stage("Build"){
 		steps{
-			sh "mkdir "Build""
+			sh "mkdir Build"
 			}
 		post{
 			success{
@@ -24,7 +24,7 @@ pipeline{
 		}
 	stage("Test"){
 			steps{
-				sh "cat "README.md""
+				sh "cat README.md"
 				}
 		}
 	}
