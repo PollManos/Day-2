@@ -6,7 +6,7 @@ pipeline{
 	
 	stage("Clone"){
 		steps{
-			git branch: 'main' url: 'https://github.com/PollManos/Day-2.git'
+			git branch: 'main', url: 'https://github.com/PollManos/Day-2.git'
 			}
 		}
 	stage("Build"){
