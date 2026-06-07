@@ -11,7 +11,7 @@ pipeline{
 		}
 	stage("Build"){
 		steps{
-			sh "mkdir -p Builds"
+			sh "mkdir -p Buildsaaaa"
 			}
 		post{
 			success{
