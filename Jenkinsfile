@@ -11,7 +11,7 @@ pipeline{
 		}
 	stage("Build"){
 		steps{
-			sh "mkdir -p Buildsaaaa"
+			sh "/.essai.sh"
 			}
 		post{
 			success{
