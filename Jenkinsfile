@@ -11,7 +11,7 @@ pipeline{
 		}
 	stage("Build"){
 		steps{
-			sh "/.essai.sh"
+			sh "./essai.sh"
 			}
 		post{
 			success{
