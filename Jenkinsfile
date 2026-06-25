@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('Verification') {
+        stage('Info systeme') {
             steps {
                 sh 'pwd'
                 sh 'ls -la'
@@ -18,14 +18,14 @@ pipeline {
 
         stage('Execution') {
             steps {
-                sh 'chmod +x scripts/run.sh'
-                sh './scripts/run.sh'
+                sh 'chmod +x scripts/env_test.sh'
+                sh './scripts/env_test.sh'
             }
         }
 
         stage('Fin') {
             steps {
-                echo 'Pipeline terminé'
+                echo 'OK'
             }
         }
     }
