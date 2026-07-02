@@ -1,32 +1,26 @@
 pipeline {
-    agent any
+	agent any
 
-    stages {
+	stages{
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+		stage("Checkout"){
+			steps {
+				checkout SCM 
+			}
+		}
+		
+		stage("Images"){
+			steps{
+				sh "docker build -t mon-projet-python ."
+			}
+		}
+		
+		stage("Container"){
+			steps {
+				sh "docker run mon-projet-python"
+			}
+		}
 
-        stage('Info systeme') {
-            steps {
-                sh 'pwd'
-                sh 'ls -la'
-            }
-        }
+	}
 
-        stage('Execution') {
-            steps {
-                sh 'chmod +x scripts/env_test.sh'
-                sh './scripts/env_test.sh'
-            }
-        }
-
-        stage('Fin') {
-            steps {
-                echo 'OK'
-            }
-        }
-    }
 }
