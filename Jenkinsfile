@@ -3,19 +3,19 @@ pipeline {
 
 	stages{
 
-		stage("Checkout"){
+		stage("Checkout") {
 			steps {
 				checkout SCM 
 			}
 		}
 		
-		stage("Images"){
-			steps{
+		stage("Images") {
+			steps {
 				sh "docker build -t mon-projet-python ."
 			}
 		}
 		
-		stage("Container"){
+		stage("Container") {
 			steps {
 				sh "docker run mon-projet-python"
 			}
