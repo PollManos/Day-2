@@ -11,16 +11,34 @@ pipeline {
 		
 		stage("Images") {
 			steps {
-				sh "docker build -t mon-projet-python ."
+				sh "docker build -t projetz ."
 			}
 		}
 		
 		stage("Container") {
 			steps {
-				sh "docker run mon-projet-python"
+				sh "docker run -d projetz"
 			}
-		}
+		} 
 
 	}
+
+	
+	post {
+	
+		success {
+			echo "gg go next"
+		}
+		
+		failure {
+			echo "montre moi comment tu recommences"
+		}
+	
+		always {
+			echo "fin du pipeline"
+		}	
+	}
+
+
 
 }

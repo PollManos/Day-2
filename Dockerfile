@@ -1,6 +1,6 @@
 FROM python:3.10.20
 
-WORKDIR /appli
+WORKDIR /projetz
 
 COPY app.py .
 
