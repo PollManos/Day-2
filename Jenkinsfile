@@ -10,8 +10,8 @@ pipeline {
 
 	parameters {
 		string (
-			name: "VERSION"
-			defaultValue: "v1"
+			name: "VERSION",
+			defaultValue: "v1",
 			description: "Quelle version souhaites-tu ?"
 		)
 	}
@@ -21,13 +21,13 @@ pipeline {
 		
 		stage("Images") {
 			steps {
-				sh "docker build -t ${MON_PROJET:${params.VERSION}} ."
+				sh "docker build -t ${MON_PROJET}:${params.VERSION} ."
 			}
 		}
 		
 		stage("Container") {
 			steps {
-				sh "docker run -d ${MON_PROJET:${params.VERSION}}"
+				sh "docker run -d ${MON_PROJET}:${params.VERSION}"
 			}
 		} 
 
