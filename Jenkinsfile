@@ -9,11 +9,11 @@ pipeline {
 
 
 	parameters {
-		string {
+		string (
 			name: "VERSION"
-			defalutvalue: "v1"
+			defaultvalue: "v1"
 			description: "Quelle version souhaites-tu ?"
-		}
+		)
 	}
 
 
