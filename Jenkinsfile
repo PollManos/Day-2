@@ -3,7 +3,7 @@ pipeline {
 
 
 
-	environnement {
+	environment {
 		MON_PROJET = "projetz"
 	}
 
