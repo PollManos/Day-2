@@ -25,7 +25,7 @@ pipeline {
 		
 		stage("Container") {
 			steps {
-				sh "docker run -d ${MON_PROJET}:${params.VERSION}"
+				sh "docker run -d ${MON_PROJET}"
 			}
 		} 
 
