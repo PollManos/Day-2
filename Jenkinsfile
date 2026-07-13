@@ -11,7 +11,7 @@ pipeline {
 	parameters {
 		string (
 			name: "VERSION"
-			defaultvalue: "v1"
+			defaultValue: "v1"
 			description: "Quelle version souhaites-tu ?"
 		)
 	}
