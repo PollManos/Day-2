@@ -4,7 +4,7 @@ pipeline {
 
 
 	environment {
-		MON_PROJET = "projetz"
+		MON_PROJET = "docksaficio/projetz"
 	}
 
 
@@ -18,19 +18,33 @@ pipeline {
 
 
 	stages{
-		
-		stage("Images") {
+
+                stage("Images") {
+                        steps {
+                                sh "docker build -t ${MON_PROJET}:${params.VERSION} ."
+                        }
+                }
+
+
+		stage("Credentials") {                        
 			steps {
-				sh "docker build -t ${MON_PROJET}:${params.VERSION} ."
+                                withCredentials ([usernamePassword(
+                                credentialsId: 'DockerHubLog',
+                                usernameVariable: 'MonUser',
+                                passwordVariable: 'MonMDP'
+                                        )])
+                                                {
+                                sh 'echo $MonMDP | docker login -u $MonUser --password-stdin'
+                                }
+                        }	
+		}
+
+		stage("Docker Push") {
+		
+			steps {
+				sh "docker push ${MON_PROJET}:${params.VERSION}"
 			}
 		}
-		
-		stage("Container") {
-			steps {
-				sh "docker run -d ${MON_PROJET}:${params.VERSION}"
-			}
-		} 
-
 	}
 
 
